@@ -1,26 +1,19 @@
 import Feed from "./components/Feed";
+import Header from "./components/Header";
 import "./styles/App.css";
 
 function App() {
   return (
-    <div className="main-container">
-      <div className="app-container">
-        <header>
-          <div className="header-logo">Lanz Social</div>
-          <div className="header-nav">
-            <ul>
-              <li>NAV</li>
-              <li>NAV</li>
-              <li>NAV</li>
-              <li>NAV</li>
-            </ul>
-          </div>
-        </header>
-        <main>
-          <Feed />
-        </main>
-        <footer></footer>
-      </div>
+    <div className="app-container">
+      <header>
+        <Header />
+      </header>
+      <main>
+        <Feed />
+      </main>
+      <footer>
+        <h1>Soy el footer</h1>
+      </footer>
     </div>
   );
 }

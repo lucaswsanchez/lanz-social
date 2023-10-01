@@ -13,15 +13,14 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  overflow-y: scroll;
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(207, 207, 207);
+  background-color: rgb(153, 153, 153);
   border-radius: 5px;
 }
 
@@ -29,8 +28,42 @@
   background-color: #ddd;
 }
 
-.post {
+.create-post {
+  width: 100%;
   background-color: white;
+  border-radius: 5px;
+  padding: 6px 10px 6px 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.posting-textarea {
+  flex: 1;
+}
+
+.posting-textarea textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+  border: none;
+  outline: none;
+}
+
+.posting-button {
+  display: flex;
+  align-items: center;
+}
+
+.send-btn {
+  background-color: rgb(5, 159, 5);
+  border-radius: 2px;
+  padding: 3px;
+  color: white;
+  cursor: pointer;
+}
+
+.post {
+  background-color: rgb(255, 255, 255);
   border-radius: 5px;
   padding: 6px 10px 6px 10px;
   display: flex;
