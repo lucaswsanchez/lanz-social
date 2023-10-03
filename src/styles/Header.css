@@ -57,3 +57,8 @@
   border-radius: 3px;
   cursor: pointer;
 }
+
+.white-link {
+  color: white;
+  text-decoration: none;
+}

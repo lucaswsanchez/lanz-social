@@ -1,4 +1,5 @@
 import "../styles/Header.css";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import LoginModal from "./LoginModal";
 
@@ -29,9 +30,11 @@ function Header() {
           <span>Log In</span>
         </div>
         <LoginModal isOpen={isModalOpen} onClose={closeModal} />
-        <div className="signup-btn">
-          <span>Sign Up</span>
-        </div>
+        <Link to="/signup" className="white-link">
+          <div className="signup-btn">
+            <span>Sign Up</span>
+          </div>
+        </Link>
       </div>
     </>
   );
