@@ -1,12 +1,10 @@
-import "../styles/SignUp.css";
+import { auth } from "../firebase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../firebase";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { BsBalloonHeartFill } from "react-icons/bs";
 
-function SignUp() {
+function LogIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -14,11 +12,10 @@ function SignUp() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await auth.createUserWithEmailAndPassword(email, password);
+      await auth.signInWithEmailAndPassword(email, password);
       navigate("/");
-      console.log("User created");
     } catch (error) {
-      toast.error("Email already in use!", {
+      toast.error("Account not found", {
         position: "bottom-right",
         autoClose: 2000,
         hideProgressBar: true,
@@ -33,10 +30,7 @@ function SignUp() {
 
   return (
     <div className="signup-container">
-      <h2>
-        We're happy to have you here!
-        <BsBalloonHeartFill color="#fb5151" size="28" />
-      </h2>
+      <h2>Please log in to your account!</h2>
       <form onSubmit={handleSubmit}>
         <div className="signup-form-input">
           <label htmlFor="email">Email</label>
@@ -60,10 +54,10 @@ function SignUp() {
             required
           />
         </div>
-        <button type="submit">Create new account</button>
+        <button type="submit">Log In</button>
       </form>
     </div>
   );
 }
 
-export default SignUp;
+export default LogIn;
