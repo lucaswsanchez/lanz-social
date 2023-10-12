@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { database, auth } from "../firebase";
+import "../styles/Post.css";
 import { FaUserCircle } from "react-icons/fa";
+import { FaDeleteLeft } from "react-icons/fa6";
 import { BiLike, BiDislike } from "react-icons/bi";
 import { MdSend } from "react-icons/md";
 import { toast } from "react-toastify";
@@ -14,7 +16,7 @@ interface Post {
 }
 
 function Post() {
-  const user = auth.currentUser; 
+  const user = auth.currentUser;
 
   const [posts, setPosts] = useState<Post[]>([]);
   const [postContent, setPostContent] = useState("");
@@ -22,14 +24,16 @@ function Post() {
   useEffect(() => {
     const postsRef = database.ref("lanzSocialPosts/posts");
 
-    const handleData = (snapshot: { val: () => any; }) => {
+    const handleData = (snapshot: { val: () => any }) => {
       const postsData = snapshot.val();
       if (postsData) {
-        const postsArray = Object.entries(postsData).map(([postId, post]: [string, any]) => ({
-          id: postId,
-          ...post,
-        }));
-        setPosts(postsArray);
+        const postsArray = Object.entries(postsData).map(
+          ([postId, post]: [string, any]) => ({
+            id: postId,
+            ...post,
+          })
+        );
+        setPosts(postsArray.reverse());
       } else {
         setPosts([]);
       }
@@ -38,11 +42,11 @@ function Post() {
     postsRef.on("value", handleData);
 
     return () => {
-      postsRef.off("value", handleData); // Desconectar el evento cuando el componente se desmonta
+      postsRef.off("value", handleData);
     };
   }, []);
 
-  const handlePostSubmit = async (e: { preventDefault: () => void; }) => {
+  const handlePostSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     if (!user) {
@@ -107,25 +111,23 @@ function Post() {
   };
 
   return (
-    <div>
+    <>
       <div className="create-post">
         <div className="post-user-photo">
           <FaUserCircle color="black" size="32" />
         </div>
-        <form onSubmit={handlePostSubmit}>
-          <div className="posting-textarea">
-            <textarea
-              placeholder="¿Qué te gustaría compartir?"
-              value={postContent}
-              onChange={(e) => setPostContent(e.target.value)}
-            ></textarea>
-          </div>
-          <div className="posting-button">
-            <button type="submit">
-              <MdSend size="20" className="send-btn" />
-            </button>
-          </div>
-        </form>
+        <div className="posting-textarea">
+          <textarea
+            placeholder="What would you like to share?"
+            value={postContent}
+            onChange={(e) => setPostContent(e.target.value)}
+          />
+        </div>
+        <div className="posting-button">
+          <button onClick={handlePostSubmit}>
+            <MdSend size="20" className="send-btn" />
+          </button>
+        </div>
       </div>
       {posts.map((post) => (
         <div className="post" key={post.id}>
@@ -134,6 +136,13 @@ function Post() {
               <FaUserCircle color="black" size="32" />
             </div>
             <div className="post-user-name">{post.email}</div>
+            {user && user.uid === post.userId && (
+              <div className="post-user-delete">
+                <button onClick={() => handlePostDelete(post.id)}>
+                  Delete <FaDeleteLeft color="#881f1f" />
+                </button>
+              </div>
+            )}
           </div>
           <div className="post-content">{post.post}</div>
           <div className="post-reaction">
@@ -144,12 +153,9 @@ function Post() {
               <BiDislike color="black" size="20" />
             </div>
           </div>
-          {user && user.uid === post.userId && (
-            <button onClick={() => handlePostDelete(post.id)}>Eliminar</button>
-          )}
         </div>
       ))}
-    </div>
+    </>
   );
 }
 

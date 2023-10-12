@@ -1,10 +1,11 @@
 import "../styles/SignUp.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { auth } from "../firebase";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BsBalloonHeartFill } from "react-icons/bs";
+import logo from "../assets/images/lanzsocialblack.png";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -33,6 +34,9 @@ function SignUp() {
 
   return (
     <div className="signup-container">
+      <Link to="/">
+        <img src={logo} />
+      </Link>
       <h2>
         We're happy to have you here!
         <BsBalloonHeartFill color="#fb5151" size="28" />

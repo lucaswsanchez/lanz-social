@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
+import logo from "../assets/images/lanzsocialwhite.png";
 
 function Header() {
   const [user, setUser] = useState<any>(null);
@@ -27,16 +28,20 @@ function Header() {
 
   return (
     <>
-      <div className="header-logo">Lanz Social</div>
+      <div className="header-logo">
+        <Link to="/">
+          <img src={logo} />
+        </Link>
+      </div>
       <div className="header-user">
         {user ? (
           <p>{user.email}</p>
         ) : (
-          <div className="header-user-btn" >
+          <div className="header-user-btn">
             <Link to="/login" className="white-link">
-            <div className="login-btn">
-              <span>Log In</span>
-            </div>
+              <div className="login-btn">
+                <span>Log In</span>
+              </div>
             </Link>
             <Link to="/signup" className="white-link">
               <div className="signup-btn">

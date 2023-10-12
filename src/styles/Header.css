@@ -2,11 +2,17 @@
   width: 20%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  padding-left: 20px;
   color: white;
   font-size: 30px;
   font-weight: bold;
+}
+
+.header-logo img {
+  width: 120px;
+  margin-top: 8px;
 }
 
 .header-user {

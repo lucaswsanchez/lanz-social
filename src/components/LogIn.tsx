@@ -1,8 +1,9 @@
 import { auth } from "../firebase";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import logo from "../assets/images/lanzsocialblack.png";
 
 function LogIn() {
   const [email, setEmail] = useState("");
@@ -30,6 +31,9 @@ function LogIn() {
 
   return (
     <div className="signup-container">
+      <Link to="/">
+        <img src={logo} />
+      </Link>
       <h2>Please log in to your account!</h2>
       <form onSubmit={handleSubmit}>
         <div className="signup-form-input">
