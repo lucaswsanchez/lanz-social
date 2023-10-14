@@ -27,7 +27,7 @@ function Header() {
   };
 
   return (
-    <>
+    <div className="header-container">
       <div className="header-logo">
         <Link to="/">
           <img src={logo} />
@@ -35,28 +35,28 @@ function Header() {
       </div>
       <div className="header-user">
         {user ? (
-          <p>{user.email}</p>
+          <span className="username">{user.email}</span>
         ) : (
           <div className="header-user-btn">
             <Link to="/login" className="white-link">
               <div className="login-btn">
-                <span>Log In</span>
+                <span>LOG IN</span>
               </div>
             </Link>
             <Link to="/signup" className="white-link">
               <div className="signup-btn">
-                <span>Sign Up</span>
+                <span>SIGN UP</span>
               </div>
             </Link>
           </div>
         )}
         {user && (
           <div className="header-user-out">
-            <button onClick={handleLogout}>Log Out</button>
+            <button onClick={handleLogout}>LOG OUT</button>
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

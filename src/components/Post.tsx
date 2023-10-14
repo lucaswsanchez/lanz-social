@@ -50,7 +50,7 @@ function Post() {
     e.preventDefault();
 
     if (!user) {
-      toast.error("Crea una cuenta para agregar un comentario.", {
+      toast.error("Create an account to post.", {
         position: "bottom-right",
         autoClose: 2000,
         hideProgressBar: true,
@@ -64,7 +64,7 @@ function Post() {
     }
 
     if (postContent.trim() === "") {
-      toast.error("El campo de comentario está vacío.", {
+      toast.error("Field is empty.", {
         position: "bottom-right",
         autoClose: 2000,
         hideProgressBar: true,
@@ -114,7 +114,7 @@ function Post() {
     <>
       <div className="create-post">
         <div className="post-user-photo">
-          <FaUserCircle color="black" size="32" />
+          <FaUserCircle color="#e0ff8f" size="32" />
         </div>
         <div className="posting-textarea">
           <textarea
@@ -133,13 +133,13 @@ function Post() {
         <div className="post" key={post.id}>
           <div className="post-header">
             <div className="post-user-photo">
-              <FaUserCircle color="black" size="32" />
+              <FaUserCircle color="#e0ff8f" size="32" />
             </div>
             <div className="post-user-name">{post.email}</div>
             {user && user.uid === post.userId && (
               <div className="post-user-delete">
                 <button onClick={() => handlePostDelete(post.id)}>
-                  Delete <FaDeleteLeft color="#881f1f" />
+                  Delete <FaDeleteLeft color="#e0ff8f" />
                 </button>
               </div>
             )}
@@ -147,10 +147,10 @@ function Post() {
           <div className="post-content">{post.post}</div>
           <div className="post-reaction">
             <div className="post-like">
-              <BiLike color="black" size="20" />
+              <BiLike color="#ffffff" size="20" />
             </div>
             <div className="post-dislike">
-              <BiDislike color="black" size="20" />
+              <BiDislike color="#ffffff" size="20" />
             </div>
           </div>
         </div>

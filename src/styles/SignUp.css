@@ -15,9 +15,9 @@
 }
 
 .signup-container h2 {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .signup-container form {
@@ -38,22 +38,22 @@
 }
 
 .signup-form-input input {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    background-color: #d0d0d0;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  background-color: #d0d0d0;
 }
 
 .padding-bottom {
-    padding-bottom: 14px;
-  }
+  padding-bottom: 14px;
+}
 
 .signup-container button {
   background-color: #059f05;
   color: white;
   padding: 5px 8px 5px 8px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   border-radius: 3px;
   border: none;

@@ -58,7 +58,7 @@ function LogIn() {
             required
           />
         </div>
-        <button type="submit">Log In</button>
+        <button type="submit">LOG IN</button>
       </form>
     </div>
   );

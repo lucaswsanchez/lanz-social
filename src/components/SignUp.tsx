@@ -64,7 +64,7 @@ function SignUp() {
             required
           />
         </div>
-        <button type="submit">Create new account</button>
+        <button type="submit">CREATE NEW ACCOUNT</button>
       </form>
     </div>
   );

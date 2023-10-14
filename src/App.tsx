@@ -1,4 +1,5 @@
 import Feed from "./components/Feed";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import "./styles/App.css";
 
@@ -12,7 +13,7 @@ function App() {
         <Feed />
       </main>
       <footer>
-        <h1>Soy el footer</h1>
+        <Footer />
       </footer>
     </div>
   );
