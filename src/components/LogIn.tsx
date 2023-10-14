@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import logo from "../assets/images/lanzsocialblack.png";
+import logo from "../assets/images/lanzsocialwhite.png";
 
 function LogIn() {
   const [email, setEmail] = useState("");

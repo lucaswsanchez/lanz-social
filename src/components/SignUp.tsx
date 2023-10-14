@@ -5,7 +5,7 @@ import { auth } from "../firebase";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BsBalloonHeartFill } from "react-icons/bs";
-import logo from "../assets/images/lanzsocialblack.png";
+import logo from "../assets/images/lanzsocialwhite.png";
 
 function SignUp() {
   const [email, setEmail] = useState("");
@@ -39,7 +39,7 @@ function SignUp() {
       </Link>
       <h2>
         We're happy to have you here!
-        <BsBalloonHeartFill color="#fb5151" size="28" />
+        <BsBalloonHeartFill color="#e0ff8f" size="28" />
       </h2>
       <form onSubmit={handleSubmit}>
         <div className="signup-form-input">
