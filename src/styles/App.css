@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap");
 :root {
   --color-primary-400: #e0ff8f;
-  --color-surface-mixed-100: #22261a;
-  --color-surface-mixed-200: #373a2f;
-  --color-surface-mixed-300: #4d5045;
-  --color-surface-mixed-400: #64675d;
-  --color-surface-mixed-500: #7c7e76;
-  --color-surface-mixed-600: #949790;
+  --color-surface-mixed-100: #121212;
+  --color-surface-mixed-200: #282828;
+  --color-surface-mixed-300: #3f3f3f;
+  --color-surface-mixed-400: #575757;
+  --color-surface-mixed-500: #717171;
+  --color-surface-mixed-600: #8b8b8b;
 }
 
 * {
